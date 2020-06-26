@@ -67,7 +67,8 @@ dev.off()
 png("RivCACOVID/R.png", width = 800, height = 400)
 plot(covid_parametric, "R", legend = FALSE)  +
   theme_few() +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  coord_cartesian(ylim = c(0,3))
 dev.off()
 
 # Write data to cache
