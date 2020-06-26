@@ -7,6 +7,7 @@ library(lubridate)
 library(EpiEstim)
 library(incidence)
 library(RCurl)
+library(ggthemes)
 
 # Import data
 r <- GET("https://services1.arcgis.com/pWmBUdSlVpXStHU6/arcgis/rest/services/COVID19_Cases_DateReport/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=DateReported%20asc&outSR=102100&resultOffset=0&resultRecordCount=32000&resultType=standard&cacheHint=true")
@@ -54,16 +55,19 @@ case_table <- cases %>%
   select(Date, ReportedNewCases, ReportedTotalCases) %>%
   left_join(R_df %>% select(Date, `Mean(R)`))
 
-# State dataset
-data_state <- 
-
 # Plot R
 png("RivCACOVID/incid.png", width = 800, height = 400)
-plot(covid_parametric, "incid")
+incid <- plot(covid_parametric, "incid") + 
+  scale_x_date(date_breaks = "1 month",
+               date_labels = "%B") +
+  theme_few()
+incid
 dev.off()
 
 png("RivCACOVID/R.png", width = 800, height = 400)
-plot(covid_parametric, "R")
+plot(covid_parametric, "R", legend = FALSE)  +
+  theme_few() +
+  theme(legend.position = "none")
 dev.off()
 
 # Write data to cache
