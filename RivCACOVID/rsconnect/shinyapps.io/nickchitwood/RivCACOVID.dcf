@@ -5,14 +5,8 @@ account: nickchitwood
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2470093
-<<<<<<< HEAD
-bundleId: 3360502
+bundleId: 3378535
 url: https://nickchitwood.shinyapps.io/RivCACOVID/
-when: 1594088284.72951
-=======
-bundleId: 3341190
-url: https://nickchitwood.shinyapps.io/RivCACOVID/
-when: 1593643037.15423
->>>>>>> 0ad6dff1c2ec74e556db9f2119554f769784f079
+when: 1594429683.73085
 asMultiple: FALSE
 asStatic: FALSE
