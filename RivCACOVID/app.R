@@ -73,13 +73,13 @@ server <- function(input, output) {
                         )
                     ),
                 paste0(
-                    h3("No"), 
+                    h3("Yes!"), 
                     p(
                      "As of ",
                      most_recent_date,
                      ", with an R value of ",
                      strong(round(most_recent_r,2)),
-                        " , daily cases are still growing."
+                        " , daily cases are shrinking. Way to go Riverside. Let's keep it up!"
                         )
                     )
         )
