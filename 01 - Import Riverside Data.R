@@ -53,7 +53,16 @@ most_recent_r <- R_df %>%
 
 case_table <- cases %>% 
   select(Date, ReportedNewCases, ReportedTotalCases) %>%
-  left_join(R_df %>% select(Date, `Mean(R)`))
+  left_join(R_df %>% select(Date, `Mean(R)`)) %>%
+  mutate(
+    CasesPer100k = ReportedNewCases / 24.70546,
+    RiskLevel = case_when(
+      CasesPer100k > 7 ~ "Purple - Widespread (>7)",
+      CasesPer100k >=4 ~ "Red - Substantial (4-7)",
+      CasesPer100k >= 1 ~ "Orange - Moderate (1-3.9)",
+      CasesPer100k < 1 ~ "Yellow - Minimal (<1)"
+    )
+  )
 
 # Plot R
 png("RivCACOVID/incid.png", width = 800, height = 400)
