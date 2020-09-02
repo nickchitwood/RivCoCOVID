@@ -80,7 +80,9 @@ png("RivCACOVID/R.png", width = 800, height = 400)
 plot(covid_parametric, "R", legend = FALSE)  +
   theme_few() +
   theme(legend.position = "none") +
-  coord_cartesian(ylim = c(0,3))
+  coord_cartesian(ylim = c(0,3)) +
+  scale_x_date(date_breaks = "1 month",
+               date_labels = "%B") +
 dev.off()
 
 # Write data to cache
