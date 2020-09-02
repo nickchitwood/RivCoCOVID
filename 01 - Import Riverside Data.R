@@ -82,7 +82,7 @@ plot(covid_parametric, "R", legend = FALSE)  +
   theme(legend.position = "none") +
   coord_cartesian(ylim = c(0,3)) +
   scale_x_date(date_breaks = "1 month",
-               date_labels = "%B") +
+               date_labels = "%B") 
 dev.off()
 
 # Write data to cache
