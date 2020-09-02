@@ -67,9 +67,12 @@ case_table <- cases %>%
 # Plot R
 png("RivCACOVID/incid.png", width = 800, height = 400)
 incid <- plot(covid_parametric, "incid") + 
+  geom_hline(yintercept = 7 * 24.70546, linetype = 'dashed', color = 'red') +
+  geom_hline(yintercept = 4 * 24.70546, linetype = 'dashed', color = 'orange') +
+  geom_hline(yintercept = 1 * 24.70546, linetype = 'dashed', color = 'yellow') +
   scale_x_date(date_breaks = "1 month",
                date_labels = "%B") +
-  theme_few()
+theme_few()
 incid
 dev.off()
 
