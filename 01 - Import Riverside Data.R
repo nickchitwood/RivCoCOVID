@@ -8,6 +8,7 @@ library(EpiEstim)
 library(incidence)
 library(RCurl)
 library(ggthemes)
+library(RcppRoll)
 
 # Import data
 r <- GET("https://services1.arcgis.com/pWmBUdSlVpXStHU6/arcgis/rest/services/COVID19_Cases_DateReport/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=DateReported%20asc&outSR=102100&resultOffset=0&resultRecordCount=32000&resultType=standard&cacheHint=true")
@@ -55,12 +56,13 @@ case_table <- cases %>%
   select(Date, ReportedNewCases, ReportedTotalCases) %>%
   left_join(R_df %>% select(Date, `Mean(R)`)) %>%
   mutate(
-    CasesPer100k = ReportedNewCases / 24.70546,
-    RiskLevel = case_when(
-      CasesPer100k > 7 ~ "Purple - Widespread (>7)",
-      CasesPer100k >=4 ~ "Red - Substantial (4-7)",
-      CasesPer100k >= 1 ~ "Orange - Moderate (1-3.9)",
-      CasesPer100k < 1 ~ "Yellow - Minimal (<1)"
+    Roll7DayAvg = roll_meanr(ReportedNewCases, n = 7),
+    RollCasesPer100k = Roll7DayAvg / 24.70546,
+    RollRisk = case_when(
+      RollCasesPer100k > 7 ~ "Purple - Widespread (>7)",
+      RollCasesPer100k >=4 ~ "Red - Substantial (4-7)",
+      RollCasesPer100k >= 1 ~ "Orange - Moderate (1-3.9)",
+      RollCasesPer100k < 1 ~ "Yellow - Minimal (<1)"
     )
   )
 
