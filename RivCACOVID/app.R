@@ -44,9 +44,9 @@ ui <- fluidPage(
      ", using the default sliding weekly windows, with a parametric serial interval (m=4.6, sd=4.2), derived from this publication:",
      a(
        href="https://www.medrxiv.org/content/10.1101/2020.11.17.20231548v2",
-       "Serial Interval of COVID-19 among Publicly Reported Confirmed Cases. "
+       "Meta-analysis of the SARS-CoV-2 serial interval and the impact of parameter uncertainty on the COVID-19 reproduction number"
        ),
-     "Zhanwei Du1, Xiaoke Xu1, Ye Wu1, Lin Wang, Benjamin J. Cowling, and Lauren Ancel Meyers."
+     "Robert Challen, Ellen Brooks-Pollock, Krasimira Tsaneva-Atanasova,Leon Danon"
        ),
     p("I am not an epidemiologist, but wanted more detail on local incidence data than provided by Riverside County Public Health. 
       There are many assumptions that may not be met in order for this basic analysis to be completely accurate, such as 
