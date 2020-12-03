@@ -35,8 +35,8 @@ covid_parametric <- estimate_R(
   incidence,
   method = "parametric_si",
   config = make_config(list(
-    mean_si = 3.96,
-    std_si = 4.75
+    mean_si = 5.6,
+    std_si = 4.2
   ))
 )
 

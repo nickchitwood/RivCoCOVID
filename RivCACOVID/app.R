@@ -41,9 +41,9 @@ ui <- fluidPage(
       ),
     p("R is calculated using the package ",
      a(href="https://cran.r-project.org/web/packages/EpiEstim/index.html","EpiEstim"),
-     ", using the default sliding weekly windows, with a parametric serial interval (m=3.96, sd=4.75), derived from this publication:",
+     ", using the default sliding weekly windows, with a parametric serial interval (m=4.6, sd=4.2), derived from this publication:",
      a(
-       href="https://wwwnc.cdc.gov/eid/article/26/6/20-0357_article",
+       href="https://www.medrxiv.org/content/10.1101/2020.11.17.20231548v2",
        "Serial Interval of COVID-19 among Publicly Reported Confirmed Cases. "
        ),
      "Zhanwei Du1, Xiaoke Xu1, Ye Wu1, Lin Wang, Benjamin J. Cowling, and Lauren Ancel Meyers."
