@@ -45,11 +45,11 @@ R_df <- covid_parametric$R %>%
 
 
 most_recent_date <- cases %>%
-  slice_tail(1) %>%
+  slice_tail(n = 1) %>%
   pull(Date)
   
 most_recent_r <- R_df %>%
-  slice_tail(1) %>%
+  slice_tail(n = 1) %>%
   pull(`Mean(R)`)
 
 case_table <- cases %>% 
