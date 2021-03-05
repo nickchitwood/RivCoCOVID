@@ -78,6 +78,18 @@ theme_few()
 incid
 dev.off()
 
+png("RivCACOVID/incid_limited.png", width = 800, height = 400)
+incid_limited <- plot(covid_parametric, "incid") + 
+  geom_hline(yintercept = 7 * 24.70546, linetype = 'dashed', color = 'red') +
+  geom_hline(yintercept = 4 * 24.70546, linetype = 'dashed', color = 'orange') +
+  geom_hline(yintercept = 1 * 24.70546, linetype = 'dashed', color = 'yellow') +
+  scale_x_date(date_breaks = "1 month",
+               date_labels = "%B") +
+  coord_cartesian(ylim=c(0,1000)) +
+  theme_few()
+incid_limited
+dev.off()
+
 png("RivCACOVID/R.png", width = 800, height = 400)
 plot(covid_parametric, "R", legend = FALSE)  +
   theme_few() +
@@ -92,5 +104,6 @@ save(case_table, file = 'RivCACOVID/case_table.Rdata')
 save(covid_parametric, file = 'RivCACOVID/covid_parametric.Rdata')
 save(most_recent_date, file = 'RivCACOVID/most_recent_date.Rdata')
 save(most_recent_r, file = 'RivCACOVID/most_recent_r.Rdata')
+
 
 

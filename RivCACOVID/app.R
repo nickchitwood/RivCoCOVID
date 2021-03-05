@@ -29,6 +29,9 @@ ui <- fluidPage(
    
     h3("Plot of daily incidence counts in Riverside County"),
     imageOutput('case_plot'),
+
+    h3("Zoomed plot of daily incidence counts in Riverside County"),
+    imageOutput('zoomed_case_plot'),
     
     h3("Estimate of daily R value in Riverside County"),
     imageOutput('R_plot'),
@@ -87,6 +90,10 @@ server <- function(input, output) {
     
     output$case_plot <- renderImage({
     list(src = 'incid.png')
+      }, deleteFile = FALSE)
+    
+    output$zoomed_case_plot <- renderImage({
+    list(src = 'incid_limited.png')
       }, deleteFile = FALSE)
     
     output$R_plot <- renderImage({
