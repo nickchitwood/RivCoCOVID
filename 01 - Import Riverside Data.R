@@ -104,6 +104,3 @@ save(case_table, file = 'RivCACOVID/case_table.Rdata')
 save(covid_parametric, file = 'RivCACOVID/covid_parametric.Rdata')
 save(most_recent_date, file = 'RivCACOVID/most_recent_date.Rdata')
 save(most_recent_r, file = 'RivCACOVID/most_recent_r.Rdata')
-
-
-
